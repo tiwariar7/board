@@ -392,16 +392,17 @@ function blackBoard() {
       // pen/eraser/spray or nothing to finalize
       if (currentTool === "text") {
         const pos = { x: startX, y: startY };
-        const text = prompt("Enter text:");
-        if (text) {
-          ctx.save();
-          ctx.globalCompositeOperation = "source-over";
-          ctx.fillStyle = ctx.strokeStyle;
-          ctx.font = Math.max(12, ctx.lineWidth * 6) + "px Poppins, sans-serif";
-          ctx.fillText(text, pos.x, pos.y);
-          ctx.restore();
-          saveCanvas(email);
-        }
+        showTextInputModal(function(text) {
+          if (text) {
+            ctx.save();
+            ctx.globalCompositeOperation = "source-over";
+            ctx.fillStyle = ctx.strokeStyle;
+            ctx.font = Math.max(12, ctx.lineWidth * 6) + "px Poppins, sans-serif";
+            ctx.fillText(text, pos.x, pos.y);
+            ctx.restore();
+            saveCanvas(email);
+          }
+        });
       }
       return;
     }
