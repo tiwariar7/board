@@ -13,7 +13,7 @@ let eraserEnabledLocal = false;
 boardColorInp.addEventListener("change", (e) => {
   const color = e.target.value;
   canvas.style.backgroundColor = color;
-  try { localStorage.setItem("boardColor", color); } catch (_) {}
+  try { localStorage.setItem("boardColor", color); } catch (_) { console.error("Failed to persist board color:", _); }
 });
 
 // Change pen color
