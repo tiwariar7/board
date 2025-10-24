@@ -641,7 +641,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // keyboard shortcuts
   document.addEventListener("keydown", function (ev) {
-    if (ev.ctrlKey && (ev.key === "z" || ev.key === "Z")) { ev.preventDefault(); onUndo(); }
+    if ((ev.ctrlKey || ev.metaKey) && (ev.key === "z" || ev.key === "Z")) { ev.preventDefault(); onUndo(); }
     if ((ev.ctrlKey || ev.metaKey) && (ev.key === "+" || ev.key === "=")) { ev.preventDefault(); zoomIn(); }
     if ((ev.ctrlKey || ev.metaKey) && (ev.key === "-" || ev.key === "_")) { ev.preventDefault(); zoomOut(); }
     if (ev.key === "g" || ev.key === "G") { ev.preventDefault(); toggleGrid(); }
